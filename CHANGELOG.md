@@ -8,7 +8,7 @@ recommendations of [keepachangelog.com](http://keepachangelog.com/).
 - Breaking Changes
   - None
 - Added
-  - None
+  - Supports sorbet 0.4.4314
 - Fixed
   - None
 

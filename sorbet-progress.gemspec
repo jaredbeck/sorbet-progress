@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.required_rubygems_version = ">= 3.0.3"
 
   lambda {
-    requirements = [">= 0.4.4365", "<= 0.4.4366"]
+    requirements = [">= 0.4.4314", "<= 0.4.4366"]
     spec.add_runtime_dependency "sorbet", requirements
     spec.add_runtime_dependency "sorbet-runtime", requirements
   }.call
