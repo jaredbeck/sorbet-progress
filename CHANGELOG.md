@@ -10,7 +10,7 @@ recommendations of [keepachangelog.com](http://keepachangelog.com/).
 - Added
   - None
 - Fixed
-  - None
+  - Fix executables in gemspec
 
 ## 0.2.1 (2019-07-02)
 
