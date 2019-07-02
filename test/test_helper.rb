@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # typed: strict
-$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
-require 'sorbet_progress'
+$LOAD_PATH.unshift File.expand_path("../lib", __dir__)
+require "sorbet_progress"
 
-require 'minitest/autorun'
+require "minitest/autorun"

@@ -21,7 +21,10 @@ Or install it yourself:
 
 ## Usage
 
-TBD
+```bash
+srb tc --metrics-file /tmp/sorbet_metrics.json
+sorbet_progress /tmp/sorbet_metrics.json
+```
 
 ## Contributing
 

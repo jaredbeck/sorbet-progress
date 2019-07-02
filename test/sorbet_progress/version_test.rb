@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # typed: true
-require 'test_helper'
+require "test_helper"
 
 module SorbetProgress
   class VersionTest < Minitest::Test

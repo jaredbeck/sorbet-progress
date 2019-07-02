@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+# typed: ignore
+
+require 'sorbet_progress'
+SorbetProgress::CLI.new(ARGV).run
