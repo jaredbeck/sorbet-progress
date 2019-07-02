@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # typed: false
 # A simple replacement for Rake::TestTask. Assumes that the `test` directory
 # is already on the LOAD_PATH. See bin/test.sh
