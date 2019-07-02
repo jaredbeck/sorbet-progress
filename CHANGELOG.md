@@ -8,6 +8,15 @@ recommendations of [keepachangelog.com](http://keepachangelog.com/).
 - Breaking Changes
   - None
 - Added
+  - None
+- Fixed
+  - None
+
+## 0.2.1 (2019-07-02)
+
+- Breaking Changes
+  - None
+- Added
   - Supports sorbet 0.4.4314
 - Fixed
   - None
