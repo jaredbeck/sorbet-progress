@@ -7,6 +7,7 @@ require 'sorbet_progress/version'
 Gem::Specification.new do |spec|
   spec.name = 'sorbet-progress'
   spec.version = SorbetProgress.gem_version.to_s
+  spec.licenses = ['AGPL-3.0-only']
   spec.authors = ['Jared Beck']
   spec.email = ['jared@jaredbeck.com']
   spec.summary = 'Measure sorbet adoption progress'
