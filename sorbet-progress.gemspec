@@ -1,7 +1,7 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "sorbet/progress/version"
+require "sorbet_progress/version"
 
 Gem::Specification.new do |spec|
   spec.name = "sorbet-progress"
@@ -20,8 +20,11 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "sorbet", ["0.4.4365", "0.4.4366"]
-  spec.add_runtime_dependency "sorbet-runtime", ["0.4.4365", "0.4.4366"]
+  lambda {
+    range = [">= 0.4.4365", "<= 0.4.4366"]
+    spec.add_runtime_dependency "sorbet", range
+    spec.add_runtime_dependency "sorbet-runtime", range
+  }.call
 
   spec.add_development_dependency "bundler", "~> 1.17"
   spec.add_development_dependency "minitest", "~> 5.0"

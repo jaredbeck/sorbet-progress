@@ -1,0 +1,26 @@
+PATH
+  remote: .
+  specs:
+    sorbet-progress (0.1.0)
+      sorbet (>= 0.4.4365, <= 0.4.4366)
+      sorbet-runtime (>= 0.4.4365, <= 0.4.4366)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    minitest (5.11.3)
+    sorbet (0.4.4366)
+      sorbet-static (= 0.4.4366)
+    sorbet-runtime (0.4.4366)
+    sorbet-static (0.4.4366-universal-darwin-14)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.17)
+  minitest (~> 5.0)
+  sorbet-progress!
+
+BUNDLED WITH
+   1.17.3
