@@ -1,6 +1,6 @@
+# typed: true
 # frozen_string_literal: true
 
-# typed: true
 require "test_helper"
 
 module SorbetProgress
