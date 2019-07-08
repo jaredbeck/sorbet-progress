@@ -1,8 +1,9 @@
+# typed: true
 # frozen_string_literal: true
 
-# typed: true
+# :nodoc:
 module SorbetProgress
   def self.gem_version
-    Gem::Version.new("0.2.2")
+    Gem::Version.new("0.2.3")
   end
 end

@@ -10,6 +10,15 @@ recommendations of [keepachangelog.com](http://keepachangelog.com/).
 - Added
   - None
 - Fixed
+  - None
+
+## 0.2.3 (2019-07-08)
+
+- Breaking Changes
+  - None
+- Added
+  - None
+- Fixed
   - Measure the `typed: strict` sigil
 - Dependencies
   - Relax sorbet constraint to `< 0.5`
