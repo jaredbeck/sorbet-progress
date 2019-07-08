@@ -11,6 +11,8 @@ recommendations of [keepachangelog.com](http://keepachangelog.com/).
   - None
 - Fixed
   - None
+- Dependencies
+  - Relax sorbet constraint to `< 0.5`
 
 ## 0.2.2 (2019-07-02)
 
