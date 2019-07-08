@@ -34,6 +34,7 @@ module SorbetProgress
         sigil_ignore: "ruby_typer.unknown..types.input.files.sigil.ignore",
         sigil_false: "ruby_typer.unknown..types.input.files.sigil.false",
         sigil_true: "ruby_typer.unknown..types.input.files.sigil.true",
+        sigil_strict: "ruby_typer.unknown..types.input.files.sigil.strict",
         sigil_strong: "ruby_typer.unknown..types.input.files.sigil.strong"
       }.each do |label, name|
         metric = metrics[name]

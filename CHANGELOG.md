@@ -10,7 +10,7 @@ recommendations of [keepachangelog.com](http://keepachangelog.com/).
 - Added
   - None
 - Fixed
-  - None
+  - Measure the `typed: strict` sigil
 - Dependencies
   - Relax sorbet constraint to `< 0.5`
 
