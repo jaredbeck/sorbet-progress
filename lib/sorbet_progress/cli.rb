@@ -2,6 +2,7 @@
 
 # typed: true
 
+require "sorbet_progress/calculator"
 require "sorbet_progress/error"
 require "sorbet_progress/metrics"
 require "sorbet_progress/parser"
@@ -26,24 +27,30 @@ module SorbetProgress
     sig { void }
     def run
       metrics = parse(@path)
-      puts "SorbetProgress:"
-      {
-        total_signatures: "ruby_typer.unknown..types.sig.count",
-        total_methods: "ruby_typer.unknown..types.input.methods.total",
-        total_classes: "ruby_typer.unknown..types.input.classes.total",
-        sigil_ignore: "ruby_typer.unknown..types.input.files.sigil.ignore",
-        sigil_false: "ruby_typer.unknown..types.input.files.sigil.false",
-        sigil_true: "ruby_typer.unknown..types.input.files.sigil.true",
-        sigil_strict: "ruby_typer.unknown..types.input.files.sigil.strict",
-        sigil_strong: "ruby_typer.unknown..types.input.files.sigil.strong"
-      }.each do |label, name|
-        metric = metrics[name]
-        if metric.nil?
-          print_metric_not_found(label)
-        else
-          print_metric(label, metric.value)
-        end
+      puts "Sorbet Progress\n\n"
+
+      stats_calculator = Calculator.new(metrics)
+
+      puts "Progress for sig coverage"
+      stats_calculator.coverage_metrics.each do |label, value|
+        puts format_metric(label, value)
       end
+
+      puts "\nProgress for file coverage"
+
+      stats_calculator.sigil_percentages.each do |elem|
+        percentage =
+          if elem[:percentage]
+            elem[:percentage] * 100
+          else
+            0
+          end
+        puts format("%-17s\t%d\t%.2f %%", elem[:label], elem[:value] || 0, percentage)
+      end
+
+      puts "---------------------------------------"
+      puts "Total: \t\t\t#{stats_calculator.total}\t100%"
+
       puts "Keep up the good work 👍"
     end
 
@@ -56,12 +63,14 @@ module SorbetProgress
       raise Error.new(2, "Metrics file not found: " + e.message)
     end
 
-    def print_metric(label, value)
-      puts format("%-17s\t%d", label, value)
-    end
-
-    def print_metric_not_found(label)
-      puts format("%-17s\tunknown", label)
+    # Format a label and metric value into a presentable String.
+    sig { params(label: Symbol, value: Integer).returns(String) }
+    def format_metric(label, value)
+      if value.nil?
+        format("%-17s\tunknown", label)
+      else
+        format("%-17s\t%d", label, value)
+      end
     end
   end
 end

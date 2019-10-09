@@ -4,6 +4,6 @@
 # :nodoc:
 module SorbetProgress
   def self.gem_version
-    Gem::Version.new("0.2.3")
+    Gem::Version.new("0.2.4")
   end
 end
