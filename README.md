@@ -25,14 +25,21 @@ Or install it yourself:
 bundle exec srb tc --metrics-file /tmp/sorbet_metrics.json
 # No errors! Great job.
 bundle exec sorbet_progress /tmp/sorbet_metrics.json
-# SorbetProgress:
-# total_signatures 	1563
-# total_methods    	5267
-# total_classes    	3795
-# sigil_ignore     	unknown
-# sigil_false      	1
-# sigil_true       	12
-# sigil_strong     	unknown
+# Sorbet Progress
+
+# Progress for sig coverage
+# total_signatures 	7528
+# total_methods    	183447
+# total_classes    	112433
+
+# Progress for file coverage
+# sigil_ignore     	12	    0.20 %
+# sigil_false      	5466	    91.60 %
+# sigil_true       	460	    7.71 %
+# sigil_strict     	12	    0.20 %
+# sigil_strong     	17	    0.28 %
+# ---------------------------------------
+# Total: 		5967	100%
 # Keep up the good work 👍
 ```
 
