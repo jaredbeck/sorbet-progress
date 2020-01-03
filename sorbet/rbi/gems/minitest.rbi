@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/minitest/all/minitest.rbi
 #
-# minitest-5.11.3
+# minitest-5.13.0
 module Minitest
   def self.__run(reporter, options); end
   def self.after_run(&block); end
@@ -61,6 +61,7 @@ module Minitest::Assertions
   def assert_nil(obj, msg = nil); end
   def assert_operator(o1, op, o2 = nil, msg = nil); end
   def assert_output(stdout = nil, stderr = nil); end
+  def assert_path_exists(path, msg = nil); end
   def assert_predicate(o1, op, msg = nil); end
   def assert_raises(*exp); end
   def assert_respond_to(obj, meth, msg = nil); end
@@ -72,6 +73,7 @@ module Minitest::Assertions
   def capture_subprocess_io; end
   def diff(exp, act); end
   def exception_details(e, msg); end
+  def fail_after(y, m, d, msg); end
   def flunk(msg = nil); end
   def message(msg = nil, ending = nil, &default); end
   def mu_pp(obj); end
@@ -88,13 +90,16 @@ module Minitest::Assertions
   def refute_match(matcher, obj, msg = nil); end
   def refute_nil(obj, msg = nil); end
   def refute_operator(o1, op, o2 = nil, msg = nil); end
+  def refute_path_exists(path, msg = nil); end
   def refute_predicate(o1, op, msg = nil); end
   def refute_respond_to(obj, meth, msg = nil); end
   def refute_same(exp, act, msg = nil); end
   def self.diff; end
   def self.diff=(o); end
   def skip(msg = nil, bt = nil); end
+  def skip_until(y, m, d, msg); end
   def skipped?; end
+  def things_to_diff(exp, act); end
 end
 class Minitest::Unit
   def self.after_tests(&b); end
@@ -269,6 +274,7 @@ module Minitest::Guard
   def jruby?(platform = nil); end
   def maglev?(platform = nil); end
   def mri?(platform = nil); end
+  def osx?(platform = nil); end
   def rubinius?(platform = nil); end
   def windows?(platform = nil); end
 end
@@ -318,6 +324,8 @@ module Minitest::Expectations
   def must_raise(*args); end
   def must_respond_to(*args); end
   def must_throw(*args); end
+  def path_must_exist(*args); end
+  def path_wont_exist(*args); end
   def wont_be(*args); end
   def wont_be_close_to(*args); end
   def wont_be_empty(*args); end
@@ -351,6 +359,8 @@ class Minitest::Expectation < Struct
   def must_raise(*args); end
   def must_respond_to(*args); end
   def must_throw(*args); end
+  def path_must_exist(*args); end
+  def path_wont_exist(*args); end
   def self.[](*arg0); end
   def self.inspect; end
   def self.members; end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# typed: strict
+# typed: true
 
 require "json"
 require "sorbet_progress/error"

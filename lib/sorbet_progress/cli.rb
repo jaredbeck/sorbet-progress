@@ -25,6 +25,7 @@ module SorbetProgress
     end
 
     sig { void }
+    # rubocop:disable Metrics/AbcSize
     def run
       metrics = parse(@path)
       puts "Sorbet Progress\n\n"
@@ -45,7 +46,12 @@ module SorbetProgress
           else
             0
           end
-        puts format("%-17s\t%d\t%.2f %%", elem[:label], elem[:value] || 0, percentage)
+        puts format(
+          "%-17s\t%d\t%.2f %%",
+          elem[:label],
+          elem[:value] || 0,
+          percentage
+        )
       end
 
       puts "---------------------------------------"
@@ -53,6 +59,7 @@ module SorbetProgress
 
       puts "Keep up the good work 👍"
     end
+    # rubocop:enable Metrics/AbcSize
 
     private
 

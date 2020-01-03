@@ -163,6 +163,8 @@ class RuboCop::AST::Node < Parser::AST::Node
   def arg_type?; end
   def args_type?; end
   def argument?; end
+  def array_pattern_type?; end
+  def array_pattern_with_tail_type?; end
   def array_type?; end
   def asgn_rhs(node = nil); end
   def assignment?; end
@@ -179,6 +181,7 @@ class RuboCop::AST::Node < Parser::AST::Node
   def break_type?; end
   def call_type?; end
   def case_if_value_used?; end
+  def case_match_type?; end
   def case_type?; end
   def casgn_type?; end
   def cbase_type?; end
@@ -191,6 +194,7 @@ class RuboCop::AST::Node < Parser::AST::Node
   def complex_type?; end
   def conditional?; end
   def const_name; end
+  def const_pattern_type?; end
   def const_type?; end
   def csend_type?; end
   def cvar_type?; end
@@ -219,14 +223,20 @@ class RuboCop::AST::Node < Parser::AST::Node
   def float_type?; end
   def for_type?; end
   def for_value_used?; end
+  def forward_args_type?; end
+  def forwarded_args_type?; end
   def guard_clause?(node = nil); end
   def gvar_type?; end
   def gvasgn_type?; end
+  def hash_pattern_type?; end
   def hash_type?; end
   def ident_type?; end
+  def if_guard_type?; end
   def if_type?; end
   def iflipflop_type?; end
   def immutable_literal?; end
+  def in_match_type?; end
+  def in_pattern_type?; end
   def index_type?; end
   def indexasgn_type?; end
   def initialize(type, children = nil, properties = nil); end
@@ -237,6 +247,7 @@ class RuboCop::AST::Node < Parser::AST::Node
   def keyword?; end
   def kwarg_type?; end
   def kwbegin_type?; end
+  def kwnilarg_type?; end
   def kwoptarg_type?; end
   def kwrestarg_type?; end
   def kwsplat_type?; end
@@ -249,9 +260,14 @@ class RuboCop::AST::Node < Parser::AST::Node
   def lvar_type?; end
   def lvasgn_type?; end
   def masgn_type?; end
+  def match_alt_type?; end
+  def match_as_type?; end
   def match_current_line_type?; end
+  def match_nil_pattern_type?; end
+  def match_rest_type?; end
+  def match_var_type?; end
   def match_with_lvasgn_type?; end
-  def meth_ref_type?; end
+  def match_with_trailing_comma_type?; end
   def mlhs_type?; end
   def module_definition?(node = nil); end
   def module_type?; end
@@ -264,6 +280,8 @@ class RuboCop::AST::Node < Parser::AST::Node
   def nonempty_line_count; end
   def not_type?; end
   def nth_ref_type?; end
+  def numargs_type?; end
+  def numblock_type?; end
   def numeric_type?; end
   def objc_kwarg_type?; end
   def objc_restarg_type?; end
@@ -281,6 +299,7 @@ class RuboCop::AST::Node < Parser::AST::Node
   def parent_module_name_for_sclass(sclass_node); end
   def parent_module_name_part(node); end
   def parenthesized_call?; end
+  def pin_type?; end
   def postexe_type?; end
   def preexe_type?; end
   def proc?(node = nil); end
@@ -321,6 +340,7 @@ class RuboCop::AST::Node < Parser::AST::Node
   def true_type?; end
   def truthy_literal?; end
   def undef_type?; end
+  def unless_guard_type?; end
   def until_post_type?; end
   def until_type?; end
   def updated(type = nil, children = nil, properties = nil); end

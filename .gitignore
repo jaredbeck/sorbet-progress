@@ -1,3 +1,4 @@
+.ruby-version
 /.bundle/
 /.yardoc
 /_yardoc/
@@ -9,3 +10,4 @@
 /*.gem
 /Gemfile.lock
 /.idea
+sorbet/rbi/hidden-definitions/errors.txt
