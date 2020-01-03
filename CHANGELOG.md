@@ -12,6 +12,15 @@ recommendations of [keepachangelog.com](http://keepachangelog.com/).
 - Fixed
   - None
 
+## 0.2.4 (2019-10-11)
+
+- Breaking Changes
+  - None
+- Added
+  - [#1](https://github.com/jaredbeck/sorbet-progress/pull/1) - sigil percentages
+- Fixed
+  - None
+
 ## 0.2.3 (2019-07-08)
 
 - Breaking Changes
