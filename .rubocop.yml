@@ -2,6 +2,10 @@ AllCops:
   Exclude:
     - 'bin/**/*'
     - '.git/**/*'
+    - 'vendor/**/*'
+
+  # Specify the lowest version tested by .travis.yml
+  TargetRubyVersion: 2.6
 
 Layout/AlignArguments:
   EnforcedStyle: with_fixed_indentation
