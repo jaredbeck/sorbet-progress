@@ -1,11 +1,12 @@
-# typed: strong
+# typed: strict
 # frozen_string_literal: true
 
+require "minitest"
 require "sorbet-runtime"
 
 module SorbetProgress
   # A simple replacement for Rake::TestTask. Assumes that the `test` directory
-  # is already on the LOAD_PATH. See bin/test.sh
+  # is already on the LOAD_PATH via the `ruby -I` in bin/test.sh
   class TestTask
     extend T::Sig
 
@@ -14,6 +15,7 @@ module SorbetProgress
       Dir.glob("test/**/*_test.rb").each do |path|
         require drop_first_path_segment(path)
       end
+      Minitest.run
     end
 
     private
