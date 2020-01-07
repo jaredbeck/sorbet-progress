@@ -1,0 +1,16 @@
+Sorbet Progress
+
+Progress for sig coverage
+total_signatures 	1552
+total_methods    	5245
+total_classes    	3779
+
+Progress for file coverage
+sigil_ignore     	0	0.00 %
+sigil_false      	1	10.00 %
+sigil_true       	4	40.00 %
+sigil_strict     	1	10.00 %
+sigil_strong     	3	30.00 %
+---------------------------------------
+Total: 			10	100%
+Keep up the good work 👍
