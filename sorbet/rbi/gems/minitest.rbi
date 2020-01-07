@@ -11,7 +11,10 @@
 module Minitest
   def self.__run(reporter, options); end
   def self.after_run(&block); end
+
+  sig { void }
   def self.autorun; end
+
   def self.backtrace_filter; end
   def self.backtrace_filter=(arg0); end
   def self.clock_time; end
@@ -27,7 +30,10 @@ module Minitest
   def self.process_args(args = nil); end
   def self.reporter; end
   def self.reporter=(arg0); end
-  def self.run(args = nil); end
+
+  sig { params(args: T::Array[String]).returns(T::Boolean) }
+  def self.run(args = []); end
+
   def self.run_one_method(klass, method_name); end
 end
 module Minitest::Parallel
