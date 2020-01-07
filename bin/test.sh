@@ -16,11 +16,10 @@ bundle exec srb tc --metrics-file /tmp/sorbet_metrics.json
 # cannot load such file -- sorbet-runtime
 # ```
 bundle info sorbet-runtime
-if [ "$TRAVIS" != 'true' ]; then
-  bundle exec ruby -I lib \
-    -r sorbet_progress \
-    -e 'SorbetProgress::CLI.new(["/tmp/sorbet_metrics.json"]).run'
-fi
+bundle exec ruby -I lib -e 'puts $LOAD_PATH'
+bundle exec ruby -I lib \
+  -r sorbet_progress \
+  -e 'SorbetProgress::CLI.new(["/tmp/sorbet_metrics.json"]).run'
 
 bundle exec rubocop
 
