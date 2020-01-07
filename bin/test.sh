@@ -12,8 +12,10 @@ bundle exec srb tc --metrics-file /tmp/sorbet_metrics.json
 # 	3: from /home/travis/.rvm/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
 # 	2: from /home/travis/build/jaredbeck/sorbet-progress/lib/sorbet_progress.rb:4:in `<top (required)>'
 # 	1: from /home/travis/.rvm/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
-# /home/travis/.rvm/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require': cannot load such file -- sorbet-runtime
+# /home/travis/.rvm/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require':
+# cannot load such file -- sorbet-runtime
 # ```
+bundle info sorbet-runtime
 if [ "$TRAVIS" != 'true' ]; then
   bundle exec ruby -I lib \
     -r sorbet_progress \
