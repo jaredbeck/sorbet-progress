@@ -8,6 +8,15 @@ recommendations of [keepachangelog.com](http://keepachangelog.com/).
 - Breaking Changes
   - None
 - Added
+  - None
+- Fixed
+  - None
+
+## 0.3.0 (2020-01-24)
+
+- Breaking Changes
+  - None
+- Added
   - `--reporter` CLI option
   - `bar_chart` reporter
 - Fixed
