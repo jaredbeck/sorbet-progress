@@ -46,6 +46,44 @@ bundle exec sorbet_progress /tmp/sorbet_metrics.json
 Not sure what the best format is. Pull requests welcome. It might be nice to
 have an overall percentage, for example.
 
+## Reporters
+
+### bar_chart
+
+```
+bundle exec sorbet_progress --reporter bar_chart /tmp/sorbet_metrics.json
+Sorbet progress: ignore | false | true | strict+
+|-0-|-2-|-------------32-------------|-------------------------61-------------------------|
+Keep up the good work 👍
+```
+
+The chart sums `strict` and `strong`, because `strict` is the highest reasonable
+goal for most applications.
+
+### verbose
+
+```
+bundle exec sorbet_progress --verbose /tmp/sorbet_metrics.json
+Sorbet Progress
+
+Progress for sig coverage
+total_signatures 	7528
+total_methods    	183447
+total_classes    	112433
+
+Progress for file coverage
+sigil_ignore     	12	    0.20 %
+sigil_false      	5466	    91.60 %
+sigil_true       	460	    7.71 %
+sigil_strict     	12	    0.20 %
+sigil_strong     	17	    0.28 %
+---------------------------------------
+Total: 		5967	100%
+Keep up the good work 👍
+```
+
+See example 
+
 ## Contributing
 
 This project does not accept bug reports. Pull requests are welcome.

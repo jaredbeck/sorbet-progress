@@ -8,7 +8,8 @@ recommendations of [keepachangelog.com](http://keepachangelog.com/).
 - Breaking Changes
   - None
 - Added
-  - None
+  - `--reporter` CLI option
+  - `bar_chart` reporter
 - Fixed
   - None
 

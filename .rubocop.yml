@@ -70,6 +70,10 @@ Layout/MultilineOperationIndentation:
 Lint/UnneededSplatExpansion:
   Enabled: false
 
+Metrics/AbcSize:
+  Exclude:
+    - test/**/*
+
 # Compared to metrics like `AbcSize` or `CyclomaticComplexity`, number of
 # lines is not a useful metric.
 Metrics/ClassLength:

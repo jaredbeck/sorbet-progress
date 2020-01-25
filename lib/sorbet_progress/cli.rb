@@ -6,6 +6,8 @@ require "sorbet_progress/calculator"
 require "sorbet_progress/error"
 require "sorbet_progress/metrics"
 require "sorbet_progress/parser"
+require "sorbet_progress/reporters/bar_chart"
+require "sorbet_progress/reporters/base"
 require "sorbet_progress/reporters/verbose"
 
 module SorbetProgress
@@ -14,22 +16,30 @@ module SorbetProgress
     extend T::Sig
 
     USAGE = <<~EOS
-      Usage: sorbet_progress /path/to/sorbet_metrics.json
+      Usage: sorbet_progress [--reporter name] /path/to/sorbet_metrics.json
+      Reporters: bar_chart, verbose
     EOS
 
     sig { params(argv: T::Array[String]).void }
     def initialize(argv)
-      unless argv.length == 1
+      # TODO: use an actual CLI args parser, like optparse or trollop
+      case argv.length
+      when 1
+        @path = argv.first
+        @reporter_name = "verbose"
+      when 3
+        @path = argv.last
+        @reporter_name = argv[1]
+      else
         raise Error.new(1, USAGE)
       end
-      @path = argv.first
     end
 
     sig { void }
     def run
       metrics = parse(@path)
       calculator = Calculator.new(metrics)
-      reporter = Reporters::Verbose.new(calculator)
+      reporter = reporter_class(@reporter_name).new(calculator)
       puts reporter.report
     end
 
@@ -40,6 +50,18 @@ module SorbetProgress
       Parser.new.parse(File.read(path))
     rescue Errno::ENOENT => e
       raise Error.new(2, "Metrics file not found: " + e.message)
+    end
+
+    sig { params(name: String).returns(T.class_of(Reporters::Base)) }
+    def reporter_class(name)
+      case name
+      when "verbose"
+        Reporters::Verbose
+      when "bar_chart"
+        Reporters::BarChart
+      else
+        raise format("Invalid reporter name: %s", @reporter_name)
+      end
     end
   end
 end

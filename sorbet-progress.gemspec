@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = ">= 2.6.3"
   spec.required_rubygems_version = ">= 3.0.3"
 
+  spec.add_runtime_dependency "rainbow", "3.0"
   lambda {
     requirements = ">= 0.4.4314"
     spec.add_runtime_dependency "sorbet", requirements

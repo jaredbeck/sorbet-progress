@@ -1,10 +1,12 @@
 # typed: strict
 # frozen_string_literal: true
 
+require "sorbet_progress/reporters/base"
+
 module SorbetProgress
   module Reporters
     # The first reporter written. It's quite verbose, so I'm calling it ..
-    class Verbose
+    class Verbose < Base
       extend T::Sig
 
       sig { params(calculator: Calculator).void }
@@ -12,7 +14,7 @@ module SorbetProgress
         @calculator = calculator
       end
 
-      sig { returns(String) }
+      sig { override.returns(String) }
       def report
         [
           "Sorbet Progress\n",
